@@ -18,8 +18,8 @@ ENV FEVER=c0b5fa24f416de8b7ec2af7763da6cd47ce04bb9
 # be accessing service data from multiple containers (for backups, log
 # shipping, etc), do we need to sync the UID across multiple containers.  Does
 # this imply the need for a UID registry (both for human and system users)?
-RUN /usr/sbin/addgroup -g 3001 adapt-custodians
-RUN /usr/sbin/addgroup -g 3002 adapt-archivists
+RUN /usr/sbin/addgroup -g 9001 adapt-custodians
+RUN /usr/sbin/addgroup -g 9002 adapt-archivists
 
 # Create under which the service will run.  In keeping with generally accepted
 # best practices we don't run as root, which limits the attack vector if the
@@ -29,7 +29,7 @@ ENV SVCUSER=adapt-${SERVICE}
 ENV HOME=/home/${SERVICE}
 
 RUN /usr/sbin/adduser \
-    -u 9001 \
+    -u 30001 \
     -D \
     -h /home/${SERVICE} \
     -s /sbin/nologin \
