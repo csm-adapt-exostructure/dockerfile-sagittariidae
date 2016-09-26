@@ -30,7 +30,7 @@ RUN pip install \
     --user \
     --requirement requirements.txt
 
-RUN crontab cron/crontab
+RUN chmod u+x ${WS}/cron/sweep && crontab cron/crontab
 
 USER root
-CMD ["crond", "-f", "-L", "/var/log/crond"]
+CMD ["crond", "-f", "-L", "/var/log/crond", "-l", "4"]
