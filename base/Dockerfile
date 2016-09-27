@@ -11,7 +11,7 @@ RUN apk add --progress --update \
     git
 
 ENV WSVER=cd61c4158f0fe2fbdaae286789b5c09ab8b7921e
-ENV FEVER=c0b5fa24f416de8b7ec2af7763da6cd47ce04bb9
+ENV FEVER=9de2e6d91467b417e2ccf6b2b38f9bd9f484283c
 
 # TODO: The user name is essentially meaningless (it's human-readable sugar).
 # All permissions magic is actually performed using the UID.  If we're going to
