@@ -10,7 +10,7 @@ MAINTAINER Docker <docker@adapt.mines.edu>
 RUN apk add --progress --update \
     git
 
-ENV WSVER=cd61c4158f0fe2fbdaae286789b5c09ab8b7921e
+ENV WSVER=3c308c2115ff35f2097c69cab8f0e0dc166e9885
 ENV FEVER=9de2e6d91467b417e2ccf6b2b38f9bd9f484283c
 
 # TODO: The user name is essentially meaningless (it's human-readable sugar).
