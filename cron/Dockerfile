@@ -30,11 +30,17 @@ RUN pip install \
     --user \
     --requirement requirements.txt
 
-RUN chmod u+x ${WS}/cron/sweep && crontab cron/crontab
+RUN for job in sweep-staged-files sweep-completed-file-dirs; do \
+    chmod u+x ${WS}/cron/$job; \
+    done \
+    && crontab cron/crontab
 
 USER root
 ENV LOCKDIR=/var/lock/sagittariidae
-ENV LOCKFILE=${LOCKDIR}/cron.lock
-RUN mkdir -p ${LOCKDIR} && touch ${LOCKFILE} && chown adapt-sagittariidae ${LOCKFILE}
+RUN mkdir -p ${LOCKDIR}
+RUN for LOCKFILE in sweep-staged-files sweep-completed-file-dirs; do \
+    touch ${LOCKDIR}/${LOCKFILE}.lock \
+    && chown adapt-sagittariidae ${LOCKDIR}/${LOCKFILE}.lock; \
+    done
 
 CMD ["crond", "-f", "-L", "/var/log/crond", "-l", "4"]
