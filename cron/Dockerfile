@@ -33,4 +33,8 @@ RUN pip install \
 RUN chmod u+x ${WS}/cron/sweep && crontab cron/crontab
 
 USER root
+ENV LOCKDIR=/var/lock/sagittariidae
+ENV LOCKFILE=${LOCKDIR}/cron.lock
+RUN mkdir -p ${LOCKDIR} && touch ${LOCKFILE} && chown adapt-sagittariidae ${LOCKFILE}
+
 CMD ["crond", "-f", "-L", "/var/log/crond", "-l", "4"]
