@@ -8,7 +8,8 @@ RUN apk --progress add \
     nodejs=6.2.0-r0 \
     openjdk8-jre-base=8.92.14-r1 \
     python=2.7.12-r0 \
-    py-pip=8.1.2-r0
+    py-pip=8.1.2-r0 \
+    sqlite=3.13.0-r0
 
 RUN npm install -g bower@1.7.9
 RUN cd /usr/local/bin \

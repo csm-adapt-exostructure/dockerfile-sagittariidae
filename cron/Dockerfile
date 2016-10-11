@@ -9,7 +9,8 @@ MAINTAINER Docker <docker@adapt.mines.edu>
 # Application requirements
 RUN apk --progress add \
     python=2.7.12-r0 \
-    py-pip=8.1.2-r0
+    py-pip=8.1.2-r0 \
+    sqlite=3.13.0-r0
 
 # Assume the `run as` user identity.
 USER ${SVCUSER}
