@@ -10,8 +10,8 @@ MAINTAINER Docker <docker@adapt.mines.edu>
 RUN apk add --progress --update \
     git
 
-ENV WSVER=3625b4faa06bcd9206ece6f646a50e060d781952
-ENV FEVER=9de2e6d91467b417e2ccf6b2b38f9bd9f484283c
+ENV WSVER=0767215059891f0ef87f9798b26aaf79950de9fe
+ENV FEVER=cd65b6a2db9b268637ca780f320f4a6135c5c628
 
 # TODO: The user name is essentially meaningless (it's human-readable sugar).
 # All permissions magic is actually performed using the UID.  If we're going to
