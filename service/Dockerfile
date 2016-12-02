@@ -5,8 +5,8 @@ MAINTAINER Docker <docker@adapt.mines.edu>
 
 # Application requirements
 RUN apk --progress add \
-    nodejs=6.2.0-r0 \
-    openjdk8-jre-base=8.92.14-r1 \
+    nodejs=6.7.0-r0 \
+    openjdk8-jre-base=8.111.14-r0 \
     python=2.7.12-r0 \
     py-pip=8.1.2-r0 \
     sqlite=3.13.0-r0
