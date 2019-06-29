@@ -1,6 +1,6 @@
 # -*- docker-image-name: "sagittariidae" -*-
 
-FROM csm-adapt/sagittariidae-base:0.0.0
+FROM csm-adapt/sagittariidae-base:0.0.1
 MAINTAINER Docker <docker@adapt.mines.edu>
 
 # Runtime environment setup. It requires `root` privileges so it is done before
@@ -8,9 +8,9 @@ MAINTAINER Docker <docker@adapt.mines.edu>
 
 # Application requirements
 RUN apk --progress add \
-    python=2.7.12-r0 \
+    python=2.7.14-r0 \
     py-pip=8.1.2-r0 \
-    sqlite=3.13.0-r0
+    sqlite=3.13.0-r2
 
 # Assume the `run as` user identity.
 USER ${SVCUSER}
@@ -19,7 +19,7 @@ WORKDIR ${HOME}
 
 # Fetch application artefacts.
 RUN git clone \
-    https://github.com/sinistral/csm-adapt.sagittariidae.git \
+    https://github.com/csm-adapt/sagittariidae.git \
     ${WS} \
     && cd ${WS} \
     && git checkout -b ${WSVER} ${WSVER} \
