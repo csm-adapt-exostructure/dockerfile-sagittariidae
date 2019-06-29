@@ -1,6 +1,6 @@
 # -*- docker-image-name: "sagittariidae" -*-
 
-FROM csm-adapt/base:0.1.0
+FROM csm-adapt/base:0.1.1
 MAINTAINER Docker <docker@adapt.mines.edu>
 
 # Runtime environment setup. It requires `root` privileges so it is done before
