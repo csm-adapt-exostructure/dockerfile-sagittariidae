@@ -1,17 +1,17 @@
 # -*- docker-image-name: "sagittariidae" -*-
 
-FROM csm-adapt/sagittariidae-base:0.0.0
+FROM csm-adapt/sagittariidae-base:0.0.1
 MAINTAINER Docker <docker@adapt.mines.edu>
 
 # Application requirements
 RUN apk --progress add \
-    nodejs=6.7.0-r0 \
+    nodejs=6.7.0-r1 \
     openjdk8-jre-base=8.111.14-r0 \
-    python=2.7.12-r0 \
+    python=2.7.14-r0 \
     py-pip=8.1.2-r0 \
-    sqlite=3.13.0-r0
+    sqlite=3.13.0-r2
 
-RUN npm install -g bower@1.7.9
+RUN npm install -g bower@1.8.8
 RUN cd /usr/local/bin \
     && wget -O boot https://github.com/boot-clj/boot-bin/releases/download/2.5.2/boot.sh \
     && chmod 755 boot
@@ -26,13 +26,13 @@ WORKDIR ${HOME}
 
 # Fetch application artefacts.
 RUN git clone \
-    https://github.com/sinistral/csm-adapt.sagittariidae.git \
+    https://github.com/csm-adapt/sagittariidae.git \
     ${WS} \
     && cd ${WS} \
     && git checkout -b ${WSVER} ${WSVER} \
     && cd -
 RUN git clone \
-    https://github.com/sinistral/csm-adapt.sagittariidae-fe.git \
+    https://github.com/csm-adapt/sagittariidae-fe.git \
     ${FE} \
     && cd ${FE} \
     && git checkout -b ${FEVER} ${FEVER} \
